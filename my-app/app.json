@@ -1,21 +1,39 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
-    "version": "1.0.0",
+    "name": "Вектор ПДД",
+    "slug": "Vector",
+    "version": "2.2.10",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/appLogo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/mainSplashScreen.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.alex501.Vector",
+      "buildNumber": "2.2.10",
+      "infoPlist": {
+        "CFBundleShortVersionString":"2.2.10",
+        "CFBundleIdentifier": "com.alex501.Vector"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/appLogo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.POST_NOTIFICATIONS"
+      ],
+      "package": "com.alex501.Vector",
+      "versionCode": 13,
     },
     "web": {
       "bundler": "metro",
@@ -25,17 +43,32 @@
     "plugins": [
       "expo-router",
       [
-        "expo-splash-screen",
+        "expo-video",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "supportsBackgroundPlayback": true,
+          "supportsPictureInPicture": true
         }
-      ]
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          },
+          "ios": {}
+        }
+      ],
+      "expo-localization",
+      "expo-font"
     ],
-    "experiments": {
-      "typedRoutes": true
+    "experiments": {},
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "c15b23b1-2857-4d01-b3c7-c6f6f1ff147b"
+      }
     }
   }
 }
